@@ -29,7 +29,32 @@
       }
     }
   </script>
-  
+
+  <style>
+    /* Custom styling for the button */
+    .waitlist-button {
+      transition: background-color 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+      margin: 5px; /* Adding margin when hovered */
+    }
+    .waitlist-button:hover {
+      background-color: #10B981; /* Green background when hovered */
+      padding-left: 20px; /* Adding padding when hovered */
+      padding-right: 20px; /* Adding padding when hovered */
+      margin-left: 10px; /* Adding margin when hovered */
+      margin-right: 10px; /* Adding margin when hovered */
+    }
+    .waitlist-button:hover .arrow {
+      opacity: 1;
+    }
+    .arrow {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .social {
+      margin-top: 20px;
+    }
+  </style>
+    
 </head>
 
 <body class="font-Noto-Sans">
@@ -71,9 +96,15 @@
 
         <!-- Content -->
         <!-- <p class="w-1/2 place-content-center mb-10 text-gray-200 md:text-center"> A virtual university marketplace facilitating the verified resale of products (dorm items, tickets, subleasing, clothing and more) on a particular campus only between verified community members. </p> -->
+        <a href="https://forms.gle/WTRrQHdsaC2Dr21aA" class="relative inline-block">
+          <button class="waitlist-button bg-blue-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">
+            Join Waitlist
+            <span class="absolute right-0 top-1/2 transform -translate-y-1/2 arrow">&#8594;</span>
+          </button>
+        </a>
 
         <!-- Social media -->
-        <div class="w-full justify-center md:justify-end">
+        <div class="w-full justify-center md:justify-end social">
           <ul class="w-full flex items-center justify-center inline gap-5 mx-auto text-gray-500">        
 
             <li>
@@ -141,6 +172,12 @@
         document.getElementById("cdS").innerHTML = seconds;
       }
     }, 1000);
+  </script>
+  <script>
+    document.querySelector('.waitlist-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = this.parentNode.href;
+    });
   </script>
 </body>
 </html>
